@@ -5,32 +5,38 @@
 <body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript">
+        var state_reset=1;
         function generate_albert(){
-            var maxi = $("#nums").val();
-            var trs = "<tr>";
-            var tre = "</tr>";
-            var tds = "<td>";
-            var tde = "</td>";
-            var trt,tdt;
-            var imgalbert = '<img src="https://emoji.slack-edge.com/T038RGMSP/albertsilead/f4b9579cb2aadda0.png" width="50" height="50">';
-            trt="";
-            tdt="";
-            for (i = 0; i < maxi; i++) {
-                trt=trs;
-                tdt=tds;
-                for (j = 0; j < maxi; j++) {
-                    if (j<=i){
-                        tdt= tdt+imgalbert;
-                    }
-                }
-                tdt = tdt + tde;
-                trt = trt + tdt+tre;
-                $("#mytable").append(trt);
+            if(state_reset==1){
+                var maxi = $("#nums").val();
+                var trs = "<tr>";
+                var tre = "</tr>";
+                var tds = "<td>";
+                var tde = "</td>";
+                var trt,tdt;
+                var imgalbert = '<img src="https://emoji.slack-edge.com/T038RGMSP/albertsilead/f4b9579cb2aadda0.png" width="50" height="50">';
                 trt="";
-            }    
+                tdt="";
+                for (i = 0; i < maxi; i++) {
+                    trt=trs;
+                    tdt=tds;
+                    for (j = 0; j < maxi; j++) {
+                        if (j<=i){
+                            tdt= tdt+imgalbert;
+                        }
+                    }
+                    tdt = tdt + tde;
+                    trt = trt + tdt+tre;
+                    $("#mytable").append(trt);
+                    trt="";
+                }
+                state_reset = 0;
+            }
+
         }
         function reset_albert(){
             $("#mytable").html("");
+            state_reset = 1;
         }
         
     </script>
