@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>Albert The King Returns!</title>
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        function generate_albert(){
+            var maxi = $("#nums").val();
+            var trs = "<tr>";
+            var tre = "</tr>";
+            var tds = "<td>";
+            var tde = "</td>";
+            var trt,tdt;
+            var imgalbert = '<img src="https://emoji.slack-edge.com/T038RGMSP/albertsilead/f4b9579cb2aadda0.png" width="50" height="50">';
+            trt="";
+            tdt="";
+            for (i = 0; i < maxi; i++) {
+                trt=trs;
+                tdt=tds;
+                for (j = 0; j < maxi; j++) {
+                    if (j<=i){
+                        tdt= tdt+imgalbert;
+                    }
+                }
+                tdt = tdt + tde;
+                trt = trt + tdt+tre;
+                $("#mytable").append(trt);
+                trt="";
+            }    
+        }
+        function reset_albert(){
+            $("#mytable").html("");
+        }
+        
+    </script>
+    <input type="text" id="nums">
+    <button onclick="generate_albert();">Let's Go!</button>
+    <button onclick="reset_albert();">Reset</button>
+    &nbsp;&nbsp;
+    <div id="resultpad">
+        <table id ="mytable"></table>
+    </div>
+</body>
+</html>
